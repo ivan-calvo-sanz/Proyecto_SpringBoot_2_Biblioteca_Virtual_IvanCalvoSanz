@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+</html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Libros</title>
+</head>
+
+<body>
+    <table border=1"">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>TITULO</th>
+                <th>AUTOR</th>
+                <th>ISBN</th>
+            </tr>
+
+        </thead>
+        <tbody>
+            <tr th:each="libro:${libros}">  <!-- "libros" es como se llama el modelo que esta enviando el Controlador -->
+                <td th:text="${libro.idLibro}"></td>
+                <td th:text="${libro.titulo}"></td>
+                <td th:text="${libro.autor}"></td>
+                <td th:text="${libro.isbn}"></td>
+            </tr>
+
+        </tbody>
+    </table>
+
+</body>
+
+</html>
