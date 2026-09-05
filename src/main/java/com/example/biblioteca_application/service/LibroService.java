@@ -21,11 +21,11 @@ public class LibroService {
         return libroRepository.findById(idLibro);
     }
 
-    Libro saveLibro(Libro libro) {
+    public Libro saveLibro(Libro libro) {
         return libroRepository.save(libro);
     }
 
-    void updateLibro(Long idLibro, Libro libro) {
+    public void updateLibro(Long idLibro, Libro libro) {
         Libro libroBD = findLibroById(idLibro).get();
         libroBD.setTitulo(libro.getTitulo());
         libroBD.setAutor(libro.getAutor());
@@ -34,7 +34,7 @@ public class LibroService {
         libroRepository.save(libroBD);
     }
 
-    void deleteLibroById(Long idLibro) {
+    public void deleteLibroById(Long idLibro) {
         libroRepository.deleteById(idLibro);
     }
 

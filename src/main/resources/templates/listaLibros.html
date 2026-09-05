@@ -2,14 +2,17 @@
 
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 
-</html>
-
 <head>
     <meta charset="UTF-8">
     <title>Libros</title>
 </head>
 
 <body>
+
+    <!-- utilizando thymeleaf hacemos que en enlace al que lleva es al template vista "createLibro" -->
+    <a th:href="@{/create}">Nuevo Libro</a>
+
+
     <table border=1"">
         <thead>
             <tr>
@@ -21,7 +24,7 @@
 
         </thead>
         <tbody>
-            <tr th:each="libro:${libros}">  <!-- "libros" es como se llama el modelo que esta enviando el Controlador -->
+            <tr th:each="libro:${libros}"> <!-- "libros" es como se llama el modelo que esta enviando el Controlador -->
                 <td th:text="${libro.idLibro}"></td>
                 <td th:text="${libro.titulo}"></td>
                 <td th:text="${libro.autor}"></td>
