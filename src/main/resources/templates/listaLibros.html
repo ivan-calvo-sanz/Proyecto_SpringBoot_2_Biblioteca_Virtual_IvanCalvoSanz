@@ -20,6 +20,7 @@
                 <th>TITULO</th>
                 <th>AUTOR</th>
                 <th>ISBN</th>
+                <th>ACCIONES</th>
             </tr>
 
         </thead>
@@ -29,6 +30,7 @@
                 <td th:text="${libro.titulo}"></td>
                 <td th:text="${libro.autor}"></td>
                 <td th:text="${libro.isbn}"></td>
+                <td><a th:href="@{/actualizarLibro/{id} (id=${libro.idLibro})}">Actualizar</a></td>
             </tr>
 
         </tbody>

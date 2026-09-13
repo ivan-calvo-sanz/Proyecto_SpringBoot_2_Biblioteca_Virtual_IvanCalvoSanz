@@ -4,11 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.biblioteca_application.entity.Libro;
 import com.example.biblioteca_application.service.LibroService;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LibroController {
@@ -32,6 +33,24 @@ public class LibroController {
     @PostMapping("/guardarLibro")
     public String guardarLibro(Libro libro) {
         libroService.saveLibro(libro);
+        return "redirect:/";
+    }
+
+    // ********** UPDATE **********
+    // creo un nuevo endpoint
+    // mapea una nueva vista y le pasa mediante la URL el id del libro a actualizar
+    @GetMapping("/actualizarLibro/{id}") // "/create" la URL que nos lleva a la vista "createLibro"
+    public String actualizarLibro(@PathVariable Long id, Model model) { // Model model es lo que le pasamos a la vista
+                                                                        // un Modelo que será el libro
+        Libro libro = libroService.findLibroById(id).get();
+        model.addAttribute("libro", libro);
+        return "/vistaActualizarLibro";
+    }
+
+    // creo un nuevo endpoint
+    @PostMapping("/actualizarLibro")
+    public String actualizarLibro(@RequestParam("idLibro") Long id, Libro libro) {
+        libroService.updateLibro(id, libro);
         return "redirect:/";
     }
 
