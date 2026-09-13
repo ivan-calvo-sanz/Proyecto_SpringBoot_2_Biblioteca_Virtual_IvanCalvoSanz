@@ -11,7 +11,7 @@
 
 
     <h1>ACTUALIZAR LIBRO</h1>
-    <!-- th:action="@{/guardarLibro}"  ->  utilizando thymeleaf cuando se envia el formulario lanza @PostMapping("/guardarLibro") -->
+    <!-- th:action="@{/actualizarLibro}"  ->  utilizando thymeleaf cuando se envia el formulario lanza @PostMapping("/actualizarLibro") -->
     <form th:action="@{/actualizarLibro}" method="post" required>
         <input type="hidden" name="idLibro" th:value="${libro.idLibro}">
         <input type="text" name="titulo" placeholder="Titulo" th:value="${libro.titulo}" required>

@@ -39,7 +39,7 @@ public class LibroController {
     // ********** UPDATE **********
     // creo un nuevo endpoint
     // mapea una nueva vista y le pasa mediante la URL el id del libro a actualizar
-    @GetMapping("/actualizarLibro/{id}") // "/create" la URL que nos lleva a la vista "createLibro"
+    @GetMapping("/actualizarLibro/{id}") // "/actualizarLibro/{id}" la URL que nos lleva a la vista "actualizarLibro"
     public String actualizarLibro(@PathVariable Long id, Model model) { // Model model es lo que le pasamos a la vista
                                                                         // un Modelo que será el libro
         Libro libro = libroService.findLibroById(id).get();
