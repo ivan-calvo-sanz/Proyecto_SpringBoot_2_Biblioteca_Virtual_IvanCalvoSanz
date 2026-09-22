@@ -5,36 +5,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Libros</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="container py-5">
+    <div class="text-center">
+        <h1>LISTA DE LIBROS</h1>
+    </div>
 
     <!-- utilizando thymeleaf hacemos que en enlace al que lleva es al template vista "createLibro" -->
-    <a th:href="@{/create}">Nuevo Libro</a>
+    <div class="text-end" mb-3>
+        <a class="btn btn-primary" th:href="@{/create}">Nuevo Libro</a>
+    </div>
 
-
-    <table border=1"">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>TITULO</th>
-                <th>AUTOR</th>
-                <th>ISBN</th>
-                <th>ACCIONES</th>
-            </tr>
-
-        </thead>
-        <tbody>
-            <tr th:each="libro:${libros}"> <!-- "libros" es como se llama el modelo que esta enviando el Controlador -->
-                <td th:text="${libro.idLibro}"></td>
-                <td th:text="${libro.titulo}"></td>
-                <td th:text="${libro.autor}"></td>
-                <td th:text="${libro.isbn}"></td>
-                <td><a th:href="@{/actualizarLibro/{id} (id=${libro.idLibro})}">Actualizar</a></td>
-            </tr>
-
-        </tbody>
-    </table>
+    <div class="mt-2">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>TITULO</th>
+                    <th>AUTOR</th>
+                    <th>ISBN</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="libro:${libros}">
+                    <!-- "libros" es como se llama el modelo que esta enviando el Controlador -->
+                    <td th:text="${libro.idLibro}"></td>
+                    <td th:text="${libro.titulo}"></td>
+                    <td th:text="${libro.autor}"></td>
+                    <td th:text="${libro.isbn}"></td>
+                    <td>
+                        <a class="btn btn-warning" th:href="@{/actualizarLibro/{id} (id=${libro.idLibro})}">Actualizar</a>
+                        <a class="btn btn-danger" th:href="@{/eliminarLibro/{id} (id=${libro.idLibro})}">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
 </body>
 

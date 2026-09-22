@@ -5,17 +5,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Create Libro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
-<body>
-    <h1>REGISTRAR LIBRO</h1>   
-    <!-- th:action="@{/guardarLibro}"  ->  utilizando thymeleaf cuando se envia el formulario lanza @PostMapping("/guardarLibro") -->
-    <form th:action="@{/guardarLibro}" method="post" required>
-        <input type="text" name="titulo" placeholder="Titulo" required>
-        <input type="text" name="autor" placeholder="Autor" required>
-        <input type="text" name="isbn" placeholder="ISBN" required>
-        <button type="submit">Guardar</button>
-    </form>
+<body class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6">
+            <div class="text-center mb-3">
+                <h1>REGISTRAR LIBRO</h1>
+            </div>
+
+            <!-- th:action="@{/guardarLibro}"  ->  utilizando thymeleaf cuando se envia el formulario lanza @PostMapping("/guardarLibro") -->
+            <form th:action="@{/guardarLibro}" method="post" required>
+                <div class="mb-3">
+                    <label id="titulo" class="form-label">Titulo</label>
+                    <input id="titulo" class="form-control" type="text" name="titulo" placeholder="Titulo" required>
+                </div>
+                <div class="mb-3">
+                    <label id="autor" class="form-label">Autor</label>
+                    <input id="autor" class="form-control" type="text" name="autor" placeholder="Autor" required>
+                </div>
+                <div class="mb-3">
+                    <label id="isbn" class="form-label">ISBN</label>
+                    <input id="isbn" class="form-control" type="text" name="isbn" placeholder="ISBN" required>
+                </div>
+                <div class="mt-2">
+                    <a class="btn btn-secondary" href="/">Cancelar</a>
+                    <button class="btn btn-primary" type="submit">Guardar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
 
 </body>
 

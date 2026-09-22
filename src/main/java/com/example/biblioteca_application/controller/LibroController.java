@@ -36,7 +36,9 @@ public class LibroController {
         return "redirect:/";
     }
 
-    // ********** UPDATE **********
+    // ****************************************
+    // **************** UPDATE ****************
+    // ****************************************
     // creo un nuevo endpoint
     // mapea una nueva vista y le pasa mediante la URL el id del libro a actualizar
     @GetMapping("/actualizarLibro/{id}") // "/actualizarLibro/{id}" la URL que nos lleva a la vista "actualizarLibro"
@@ -53,5 +55,21 @@ public class LibroController {
         libroService.updateLibro(id, libro);
         return "redirect:/";
     }
+    // ****************************************
+    // ****************************************
+    // ****************************************
+
+    // ****************************************
+    // **************** DELETE ****************
+    // ****************************************
+    // creo un nuevo endpoint
+    @GetMapping("/eliminarLibro/{id}")
+    public String eliminarLibro(@PathVariable Long id) {
+        libroService.deleteLibroById(id);
+        return "redirect:/";
+    }
+    // ****************************************
+    // ****************************************
+    // ****************************************
 
 }
